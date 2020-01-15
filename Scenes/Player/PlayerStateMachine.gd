@@ -7,3 +7,4 @@ func state_init():
 	for child in children_array:
 		if ("player_node" in child):
 			child.player_node = player_node
+			child.element_state_init()

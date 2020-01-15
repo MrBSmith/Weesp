@@ -1,11 +1,10 @@
 extends StateBase
 
-#Get player node
-var player_node : Node
+class_name BaseIdle
 
 func update(_host, _delta):
 	if(player_node.dest != Vector2(0,0)):
-		return "BaseMove"
+		return "Move"
 
 func enter_state(_host):
 	pass
