@@ -20,6 +20,6 @@ func player_click_movement(delta):
 	if position != dest:
 		gap = dest - position
 		dir = gap.normalized()
-		move_and_slide(dir * speed)
+		var _moveplayer = move_and_slide(dir * speed)
 		if gap.abs() < dir * speed * delta:
 			position = dest

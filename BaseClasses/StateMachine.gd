@@ -35,6 +35,7 @@ func _physics_process(delta):
 # Set current_state at a new state, also set previous state, and emit a signal to notify the change, to anybody needing it 
 func set_state(new_state):
 	
+	
 	# if the given argument is a string, get the 
 	if new_state is String:
 		new_state = get_node(new_state)
@@ -50,6 +51,8 @@ func set_state(new_state):
 	# Change the current state, and the previous state
 	previous_state = current_state
 	current_state = new_state
+	
+	state_name = current_state.get_name()
 	
 	# Use the enter_state function of the current state
 	if new_state != null:

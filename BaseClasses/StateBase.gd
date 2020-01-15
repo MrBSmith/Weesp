@@ -1,5 +1,7 @@
 extends Node
 
+var player_node : Node
+
 class_name StateBase
 
 func update(_host, _delta):
