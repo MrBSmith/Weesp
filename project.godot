@@ -15,19 +15,29 @@ _global_script_classes=[ {
 "path": "res://BaseClasses/StateBase.gd"
 }, {
 "base": "Node",
-"class": "StatesMachine",
+"class": "StateMachineBase",
 "language": "GDScript",
 "path": "res://BaseClasses/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "StateBase": "",
-"StatesMachine": ""
+"StateMachineBase": ""
 }
 
 [application]
 
 config/name="Weesp"
+run/main_scene="res://Scenes/Main/Game.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=640
+window/size/height=360
+window/size/borderless=true
+window/size/fullscreen=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [importer_defaults]
 
