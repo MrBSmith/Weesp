@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StateMachineBase",
+"class": "ElementStateMachineBase",
+"language": "GDScript",
+"path": "res://BaseClasses/ElementStateMachineBase.gd"
+}, {
 "base": "Node",
 "class": "StateBase",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://BaseClasses/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"ElementStateMachineBase": "",
 "StateBase": "",
 "StateMachineBase": ""
 }
