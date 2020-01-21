@@ -1,4 +1,4 @@
-extends BaseIdle
+extends BaseFall
 
 func _ready():
 	pass

@@ -4,7 +4,11 @@ extends KinematicBody2D
 onready var children_array = get_children()
 onready var state_machine_node = get_node("StateMachine")
 
+const GRAVITY := 200.0
+var dir_gravity := Vector2(0,1)
+
 export var speed : float
+export var weight : float
 var dest := Vector2(0,0)
 var dir := Vector2(0,0)
 var gap := Vector2(0,0)

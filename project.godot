@@ -10,9 +10,19 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "StateBase",
+"class": "BaseFall",
+"language": "GDScript",
+"path": "res://Scenes/Player/BaseFall.gd"
+}, {
+"base": "StateBase",
 "class": "BaseIdle",
 "language": "GDScript",
 "path": "res://Scenes/Player/BaseIdle.gd"
+}, {
+"base": "StateBase",
+"class": "BaseJump",
+"language": "GDScript",
+"path": "res://Scenes/Player/BaseJump.gd"
 }, {
 "base": "StateBase",
 "class": "BaseMove",
@@ -35,7 +45,9 @@ _global_script_classes=[ {
 "path": "res://BaseClasses/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"BaseFall": "",
 "BaseIdle": "",
+"BaseJump": "",
 "BaseMove": "",
 "ElementStateMachineBase": "",
 "StateBase": "",
@@ -87,7 +99,7 @@ SwitchWaterState={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":49,"unicode":0,"echo":false,"script":null)
  ]
 }
-SwitchLightningState={
+SwitchPlantState={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":50,"unicode":0,"echo":false,"script":null)
  ]

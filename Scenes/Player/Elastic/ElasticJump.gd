@@ -1,4 +1,4 @@
-extends BaseMove
+extends BaseJump
 
 func _ready():
 	pass

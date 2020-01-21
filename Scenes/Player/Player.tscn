@@ -1,20 +1,21 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player/PlayerStateMachine.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Player/Water/WaterState_M.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Player/Water/WaterIdle.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Player/Water/WaterMove.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Player/Lightning/LightningState_M.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/Player/Lightning/LightningIdle.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Player/Lightning/LightningMove.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Player/Plant/PlantState_M.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Player/Plant/PlantIdle.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Player/Plant/PlantFall.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Player/Elastic/ElasticState_M.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Player/Elastic/ElasticIdle.gd" type="Script" id=10]
-[ext_resource path="res://Scenes/Player/Elastic/ElasticMove.gd" type="Script" id=11]
-[ext_resource path="res://Scenes/Player/DebugState.gd" type="Script" id=12]
-[ext_resource path="res://Scenes/Player/Sprites/Weesp_Gum.png" type="Texture" id=13]
-[ext_resource path="res://Scenes/Player/Sprites/Weesp_lightning.png" type="Texture" id=14]
-[ext_resource path="res://Scenes/Player/Sprites/Weesp_water.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/Player/Elastic/ElasticJump.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Player/Elastic/ElasticFall.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/Player/DebugState.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Player/Sprites/Weesp_Gum.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Player/Sprites/Weesp_lightning.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/Player/Sprites/Weesp_water.png" type="Texture" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 2.0
@@ -35,25 +36,26 @@ script = ExtResource( 4 )
 [node name="Move" type="Node" parent="StateMachine/WaterState_M"]
 script = ExtResource( 5 )
 
-[node name="LightningState_M" type="Node" parent="StateMachine"]
-editor/display_folded = true
+[node name="PlantState_M" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
 
-[node name="Idle" type="Node" parent="StateMachine/LightningState_M"]
+[node name="Idle" type="Node" parent="StateMachine/PlantState_M"]
 script = ExtResource( 7 )
 
-[node name="Move" type="Node" parent="StateMachine/LightningState_M"]
+[node name="Fall" type="Node" parent="StateMachine/PlantState_M"]
 script = ExtResource( 8 )
 
 [node name="ElasticState_M" type="Node" parent="StateMachine"]
-editor/display_folded = true
 script = ExtResource( 9 )
 
 [node name="Idle" type="Node" parent="StateMachine/ElasticState_M"]
 script = ExtResource( 10 )
 
-[node name="Move" type="Node" parent="StateMachine/ElasticState_M"]
+[node name="Jump" type="Node" parent="StateMachine/ElasticState_M"]
 script = ExtResource( 11 )
+
+[node name="Fall" type="Node" parent="StateMachine/ElasticState_M"]
+script = ExtResource( 12 )
 
 [node name="DebugState" type="Label" parent="StateMachine"]
 margin_left = 15.7361
@@ -61,22 +63,22 @@ margin_top = 17.4857
 margin_right = 58.7361
 margin_bottom = 31.4857
 text = "ABCDE"
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 
 [node name="SpriteGum" type="Sprite" parent="."]
-texture = ExtResource( 13 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="SpriteLightning" type="Sprite" parent="."]
 texture = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SpriteWater" type="Sprite" parent="."]
+[node name="SpriteLightning" type="Sprite" parent="."]
 texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SpriteWater" type="Sprite" parent="."]
+texture = ExtResource( 16 )
 __meta__ = {
 "_edit_lock_": true
 }
