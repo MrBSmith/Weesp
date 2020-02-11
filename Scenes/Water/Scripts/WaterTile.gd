@@ -9,6 +9,12 @@ onready var particules_node = get_node("Particles2D")
 
 var M_IceBlocks_node : Node2D
 
+func _ready():
+	var _err
+	_err = connect("body_entered", self, "on_body_entered")
+	_err = connect("body_exited", self, "on_body_exited")
+
+
 # Return true is the given string is the name of the class 
 # (Necesary in 3.2 because Godot check the very parent class instead of the current class)
 func is_class(value : String):
@@ -21,15 +27,16 @@ func get_class():
 	return CLASS_NAME
 
 
-# Make every ice block floating while they are in the water area
+# Notify the player that he is in water
 func on_body_entered(body):
-	if body.is_class("IceBlock"):
-		body_floating(body, true)
-		
-	if body is RigidBody2D or body is KinematicBody2D:
-		particules_node.global_position.x = body.global_position.x
-		particules_node.set_emitting(true)
+	if body.is_class("Player"):
+		body.set_in_water(true)
 
+
+# Notify the player that he is not in water
+func on_body_exited(body):
+	if body.is_class("Player"):
+		body.set_in_water(false)
 
 # Return true if the given position is inside the given area, false if not
 func is_position_in_area(pos: Vector2, collision_shape : CollisionShape2D) -> bool:

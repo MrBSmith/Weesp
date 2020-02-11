@@ -12,4 +12,4 @@ func enter_state(_host):
 	pass
 
 func exit_state(_host):
-	physics_node.destination = Vector2.ZERO
+	pass

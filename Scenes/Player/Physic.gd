@@ -1,34 +1,46 @@
 extends Node
 
-var player_node : KinematicBody2D
+var player_node : Node
+
+signal gravity_modifier_changed
+
+const MAX_SPEED : int = 300
+const GRAVITY : int = 50
+const DAMP : int = 1300
+const ACCELERATION : int = 2000
 
 var velocity := Vector2.ZERO
-var destination := Vector2.ZERO
 var direction := Vector2.ZERO
-var GRAVITY : int = 200
-var gravity_modifier : float = 0.0
+var gravity_modifier : float = 1.0 setget set_gravity_modifier
+var floating := false
 
-const SPEED : int = 150
+
+func set_gravity_modifier(value : float):
+	gravity_modifier = value
+	emit_signal("gravity_modifier_changed", gravity_modifier)
 
 
 func _physics_process(delta):
-	
-	# Calculate direction
-	if destination != Vector2.ZERO:
-		direction = -(player_node.position - destination).normalized()
-	
-	# Check if the player is already arrived
-	var gap = destination - player_node.position
-	if gap.abs() < direction * SPEED * delta:
-		player_node.position = destination
-		direction = Vector2.ZERO
-		destination = Vector2.ZERO
-	
-	# Calculate velocity
-	velocity = direction * SPEED
-	
 	# Apply gravity
-	velocity.y += GRAVITY * gravity_modifier
+	velocity.y += (GRAVITY * gravity_modifier) * int(!floating)
+	
+	if direction == Vector2.ZERO:
+		apply_friction(DAMP * delta)
+	else:
+		apply_movement(direction * ACCELERATION * delta)
 	
 	# Move the player
-	var _err = player_node.move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
+	var _err = player_node.move_and_slide(velocity)
+
+# Apply friction, progressively stop movement
+func apply_friction(value : float):
+	if velocity.length() > value:
+		velocity -= velocity.normalized() * value
+	else:
+		velocity = Vector2.ZERO
+
+
+func apply_movement(value : Vector2):
+	velocity += value
+	velocity = velocity.clamped(MAX_SPEED)
+

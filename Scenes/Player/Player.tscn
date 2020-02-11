@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
@@ -18,10 +18,11 @@
 [ext_resource path="res://Scenes/Player/Sprites/Weesp_water.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/Player/Physic.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/Player/SubState.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/Player/InWaterLabel.gd" type="Script" id=18]
+[ext_resource path="res://Scenes/Player/DebugLabels.gd" type="Script" id=19]
 
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 2.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 148.015, 90.7321 )
@@ -105,3 +106,17 @@ __meta__ = {
 
 [node name="Physics" type="Node" parent="."]
 script = ExtResource( 16 )
+
+[node name="DebugLabels" type="Node" parent="."]
+script = ExtResource( 19 )
+
+[node name="InWaterLabel" type="Label" parent="DebugLabels"]
+margin_left = 16.1721
+margin_top = 53.4234
+margin_right = 131.172
+margin_bottom = 96.4234
+text = "In water :"
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
