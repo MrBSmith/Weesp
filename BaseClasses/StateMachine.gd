@@ -16,12 +16,9 @@ var state_name
 signal state_changed
 
 
-func on_ready():
+func setup():
 	set_state(states_map[0])
-	state_init()
 
-func state_init():
-	pass
 
 # Call for the current state process at every frame of the physic process
 func _physics_process(delta):
@@ -59,3 +56,7 @@ func set_state(new_state):
 		current_state.enter_state(self)
 	
 	emit_signal("state_changed", state_name)
+
+# Returns the current state
+func get_state() -> Object:
+	return current_state

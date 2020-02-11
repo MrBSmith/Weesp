@@ -43,6 +43,11 @@ _global_script_classes=[ {
 "class": "StateMachineBase",
 "language": "GDScript",
 "path": "res://BaseClasses/StateMachine.gd"
+}, {
+"base": "Area2D",
+"class": "Water",
+"language": "GDScript",
+"path": "res://Scenes/Water/Scripts/WaterTile.gd"
 } ]
 _global_script_class_icons={
 "BaseFall": "",
@@ -51,7 +56,8 @@ _global_script_class_icons={
 "BaseMove": "",
 "ElementStateMachineBase": "",
 "StateBase": "",
-"StateMachineBase": ""
+"StateMachineBase": "",
+"Water": ""
 }
 
 [application]

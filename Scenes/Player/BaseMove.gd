@@ -2,14 +2,14 @@ extends StateBase
 
 class_name BaseMove
 
-func update(_host, delta):
-	player_node.player_click_movement(delta)
-	if(player_node.position == player_node.dest):
+var physics_node : Node
+
+func update(_host, _delta):
+	if physics_node.velocity == Vector2.ZERO:
 		return "Idle"
 
 func enter_state(_host):
-	print("MOVE STATE ENTERED")
+	pass
 
 func exit_state(_host):
-	player_node.dest = Vector2(0,0)
-	print("MOVE STATE EXITED")
+	physics_node.destination = Vector2.ZERO

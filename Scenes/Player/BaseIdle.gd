@@ -2,8 +2,12 @@ extends StateBase
 
 class_name BaseIdle
 
+var state_machine_node : Node
+var element_state_node : Node
+var physics_node : Node
+
 func update(_host, _delta):
-	if(player_node.dest != Vector2(0,0)):
+	if physics_node.destination != Vector2(0,0):
 		return "Move"
 
 func enter_state(_host):
@@ -11,10 +15,3 @@ func enter_state(_host):
 
 func exit_state(_host):
 	pass
-
-func _input(event):
-	#Mouse in viewport c oordinates
-	if event is InputEventMouseButton:
-		if (event.is_pressed() and event.button_index == BUTTON_LEFT):
-			print("Character moved towards position: ", event.position)
-			player_node.dest = event.position

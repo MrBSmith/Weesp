@@ -1,18 +1,32 @@
 extends StateMachineBase
 
-onready var player_node : Node
+var player_node : Node
+var physics_node : Node
+
 onready var children_array = get_children()
 
-func state_init():
+func setup():
 	for child in children_array:
-		if ("player_node" in child):
+		if "player_node" in child:
 			child.player_node = player_node
-			child.element_state_init()
+	
+		if "physics_node" in child:
+			child.physics_node = physics_node
+		
+		if "state_machine_node" in child:
+			child.state_machine_node = self
+		
+		if child.has_method("setup"):
+			child.setup()
+	
+	# Set the start state to be the first state in the list
+	set_state(states_map[0])
 
+# Handle the element state change
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("SwitchWaterState"):
-		set_state("WaterState_M")
-	elif Input.is_action_just_pressed("SwitchPlantState"):
-		set_state("PlantState_M")
+		set_state("Water")
+	elif Input.is_action_just_pressed("SwitchLightningState"):
+		set_state("Leaf")
 	elif Input.is_action_just_pressed("SwitchElasticState"):
-		set_state("ElasticState_M")
+		set_state("Elastic")

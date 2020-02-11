@@ -7,4 +7,4 @@ func _ready():
 
 func on_state_changed(state_name):
 	if(state_name != null):
-		text = state_name
+		text = "Element State: " + state_name
