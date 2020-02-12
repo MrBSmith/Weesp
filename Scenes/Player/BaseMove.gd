@@ -5,8 +5,7 @@ class_name BaseMove
 var physics_node : Node
 
 func update(_host, _delta):
-	if physics_node.velocity == Vector2.ZERO:
-		return "Idle"
+	pass
 
 func enter_state(_host):
 	pass

@@ -8,6 +8,7 @@ signal in_water_changed
 onready var children_array = get_children()
 onready var state_machine_node = get_node("StateMachine")
 onready var physics_node = get_node("Physics")
+onready var collision_shape_node = get_node("CollisionShape2D")
 
 const GRAVITY := 200.0
 var dir_gravity := Vector2(0,1)
@@ -29,6 +30,7 @@ func set_in_water(value: bool):
 func is_in_water() -> bool:
 	return in_water
 
+
 # Give references to the children and setup them
 func _ready():
 	for child in children_array:
@@ -37,6 +39,9 @@ func _ready():
 		
 		if "physics_node" in child:
 			child.physics_node = physics_node
+		
+		if "state_machine_node" in child:
+			child.state_machine_node = state_machine_node
 		
 		if child.has_method("setup"):
 			child.setup()

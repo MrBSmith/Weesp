@@ -1,7 +1,6 @@
 extends BaseIdle
 
-func update(_host, _delta):
-	pass
+#### GLUE STATE ####
 
-func _ready():
-	pass
+func enter_state(_host):
+	physics_node.mass = 0.0

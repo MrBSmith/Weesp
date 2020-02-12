@@ -2,32 +2,33 @@ extends Node
 
 var player_node : Node
 
-signal gravity_modifier_changed
-
 const MAX_SPEED : int = 300
-const GRAVITY : int = 50
+const GRAVITY : int = 10
 const DAMP : int = 1300
 const ACCELERATION : int = 2000
 
 var velocity := Vector2.ZERO
 var direction := Vector2.ZERO
-var gravity_modifier : float = 1.0 setget set_gravity_modifier
+var mass : int = 5
 var floating := false
 
 
-func set_gravity_modifier(value : float):
-	gravity_modifier = value
-	emit_signal("gravity_modifier_changed", gravity_modifier)
-
-
 func _physics_process(delta):
-	# Apply gravity
-	velocity.y += (GRAVITY * gravity_modifier) * int(!floating)
 	
+	# Apply movement/damp
 	if direction == Vector2.ZERO:
 		apply_friction(DAMP * delta)
-	else:
+	else: 
 		apply_movement(direction * ACCELERATION * delta)
+	
+	# Calculate the gravity
+	var applied_gravity = GRAVITY * mass
+	
+	# Apply gravity
+	if floating:
+		velocity.y -= applied_gravity
+	else:
+		velocity.y += applied_gravity
 	
 	# Move the player
 	var _err = player_node.move_and_slide(velocity)

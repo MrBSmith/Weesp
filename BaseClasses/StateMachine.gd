@@ -15,7 +15,6 @@ var state_name
 
 signal state_changed
 
-
 func setup():
 	set_state(states_map[0])
 
@@ -31,7 +30,6 @@ func _physics_process(delta):
 
 # Set current_state at a new state, also set previous state, and emit a signal to notify the change, to anybody needing it 
 func set_state(new_state):
-	
 	
 	# if the given argument is a string, get the 
 	if new_state is String:
