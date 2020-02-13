@@ -35,6 +35,8 @@ func get_input_axis():
 
 # Apply the mass of the
 func enter_state(_host):
+	if current_state == null:
+		set_state(states_map[0])
 	sprite_node.set_visible(true)
 	current_state.enter_state(self)
 	physics_node.floating = false

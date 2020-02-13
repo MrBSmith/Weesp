@@ -14,7 +14,6 @@ var floating := false
 
 
 func _physics_process(delta):
-	
 	# Apply movement/damp
 	if direction == Vector2.ZERO:
 		apply_friction(DAMP * delta)

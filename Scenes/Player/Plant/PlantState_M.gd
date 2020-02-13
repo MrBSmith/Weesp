@@ -10,7 +10,11 @@ func update(_host, _delta):
 	else:
 		physics_node.floating = false
 
+
 func enter_state(_host):
+	if current_state == null:
+		set_state(states_map[0])
+		
 	sprite_node.set_visible(true)
 	current_state.enter_state(self)
 	

@@ -13,7 +13,6 @@ func _ready():
 	set_physics_process(false)
 
 func setup():
-	set_state(states_map[0])
 	for state in states_map:
 		if "player_node" in state:
 			state.player_node = player_node
@@ -26,6 +25,9 @@ func setup():
 		
 		if "state_machine_node" in state:
 			state.state_machine_node = state_machine_node
+		
+		if state.has_method("setup"):
+			state.setup()
 
 # Call for the current state process at every frame of the physic process
 func update(_host, delta):
@@ -37,6 +39,8 @@ func update(_host, delta):
 
 
 func enter_state(_host):
+	if current_state == null:
+		set_state(states_map[0])
 	sprite_node.set_visible(true)
 	current_state.enter_state(self)
 
