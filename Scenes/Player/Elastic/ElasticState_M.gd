@@ -2,12 +2,17 @@ extends ElementStateMachineBase
 
 #### ELASTIC STATE ####
 
-onready var state_node_array = get_children()
-
 func setup():
 	for state in state_node_array:
 		if "physics_node" in state:
 			state.physics_node = physics_node
+		
+		if "player_node" in state:
+			state.player_node = player_node
+		
+		if state.has_method("setup"):
+			state.setup()
+
 
 func enter_state(_host):
 	sprite_node.set_visible(true)
@@ -17,5 +22,5 @@ func enter_state(_host):
 		set_state("Glue")
 	else:
 		set_state("Fall")
-
-
+	
+	current_state.enter_state(self)

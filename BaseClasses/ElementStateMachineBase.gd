@@ -3,6 +3,7 @@ extends StateMachineBase
 class_name ElementStateMachineBase
 
 onready var sprite_node = get_node("Sprite")
+onready var state_node_array = get_children()
 
 var player_node : Node
 var physics_node : Node
@@ -34,8 +35,15 @@ func update(_host, delta):
 	if state_name:
 		set_state(get_node(state_name))
 
+
 func enter_state(_host):
 	sprite_node.set_visible(true)
+	current_state.enter_state(self)
+
 
 func exit_state(_host):
+	for state in state_node_array:
+		if state.has_method("exit_state"):
+			state.exit_state(self)
+	
 	sprite_node.set_visible(false)

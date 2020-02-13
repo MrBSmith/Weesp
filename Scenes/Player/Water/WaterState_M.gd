@@ -24,6 +24,7 @@ func update(_host, delta):
 		set_state(get_node(state_name))
 
 
+# Returns the direction the player is trying to go 
 func get_input_axis():
 	var axis = Vector2.ZERO
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
@@ -32,12 +33,10 @@ func get_input_axis():
 	return axis.normalized()
 
 
-func is_a_direction_pressed():
-	return Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down")
-
 # Apply the mass of the
 func enter_state(_host):
 	sprite_node.set_visible(true)
+	current_state.enter_state(self)
 	physics_node.floating = false
 	physics_node.mass = elem_mass
 

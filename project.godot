@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "StateBase",
 "class": "BaseIdle",
 "language": "GDScript",
-"path": "res://Scenes/Player/BaseIdle.gd"
+"path": "res://Scenes/Player/Scripts/BaseIdle.gd"
 }, {
 "base": "StateBase",
 "class": "BaseJump",
@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "StateBase",
 "class": "BaseMove",
 "language": "GDScript",
-"path": "res://Scenes/Player/BaseMove.gd"
+"path": "res://Scenes/Player/Scripts/BaseMove.gd"
 }, {
 "base": "StateMachineBase",
 "class": "ElementStateMachineBase",
@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Scenes/Player/Player.gd"
+"path": "res://Scenes/Player/Scripts/Player.gd"
 }, {
 "base": "Node",
 "class": "StateBase",

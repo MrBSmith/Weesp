@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
-
-[ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Player/PlayerStateMachine.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Player/Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Player/Scripts/PlayerStateMachine.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Player/Water/WaterState_M.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Player/Water/WaterIdle.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Player/Water/WaterMove.gd" type="Script" id=5]
@@ -12,14 +11,16 @@
 [ext_resource path="res://Scenes/Player/Elastic/ElasticState_M.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Player/Elastic/ElasticIdle.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Player/Elastic/ElasticMove.gd" type="Script" id=11]
-[ext_resource path="res://Scenes/Player/DebugState.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/Player/Scripts/DebugState.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Player/Sprites/Weesp_Gum.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Player/Sprites/Weesp_lightning.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/Player/Sprites/Weesp_water.png" type="Texture" id=15]
-[ext_resource path="res://Scenes/Player/Physic.gd" type="Script" id=16]
-[ext_resource path="res://Scenes/Player/SubState.gd" type="Script" id=17]
-[ext_resource path="res://Scenes/Player/InWaterLabel.gd" type="Script" id=18]
-[ext_resource path="res://Scenes/Player/DebugLabels.gd" type="Script" id=19]
+[ext_resource path="res://Scenes/Player/Scripts/Physic.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/Player/Scripts/SubState.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/Player/Scripts/InWaterLabel.gd" type="Script" id=18]
+[ext_resource path="res://Scenes/Player/Scripts/DebugLabels.gd" type="Script" id=19]
+[ext_resource path="res://Scenes/Player/Sprites/Arrow.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Player/ArrowSprite.gd" type="Script" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
@@ -67,10 +68,14 @@ __meta__ = {
 [node name="Elastic" type="Node2D" parent="StateMachine"]
 script = ExtResource( 9 )
 
-[node name="Glue" type="Node" parent="StateMachine/Elastic"]
+[node name="Glue" type="Node2D" parent="StateMachine/Elastic"]
 script = ExtResource( 10 )
 
 [node name="Arrow" type="Sprite" parent="StateMachine/Elastic/Glue"]
+visible = false
+texture = ExtResource( 20 )
+offset = Vector2( -32, 0 )
+script = ExtResource( 21 )
 
 [node name="Fall" type="Node" parent="StateMachine/Elastic"]
 script = ExtResource( 11 )

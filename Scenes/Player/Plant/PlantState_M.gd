@@ -12,6 +12,7 @@ func update(_host, _delta):
 
 func enter_state(_host):
 	sprite_node.set_visible(true)
+	current_state.enter_state(self)
 	
 	physics_node.mass = elem_mass
 	physics_node.floating = true
