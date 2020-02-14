@@ -31,6 +31,10 @@ func is_in_water() -> bool:
 	return in_water
 
 
+func on_camera_rotated():
+	physics_node.rotate_physics()
+
+
 # Give references to the children and setup them
 func _ready():
 	for child in children_array:
