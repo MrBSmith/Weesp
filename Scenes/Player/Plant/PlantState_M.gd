@@ -1,7 +1,23 @@
 extends ElementStateMachineBase
 
-func enter_state(_host):
-	pass
+export var elem_mass : float = 1.0
 
-func exit_state(_host):
-	pass
+#### LEAF STATE ####
+
+func update(_host, _delta):
+	if player_node.is_in_water():
+		physics_node.floating = true
+	else:
+		physics_node.floating = false
+
+
+func enter_state(_host):
+	if current_state == null:
+		set_state(states_map[0])
+		
+	sprite_node.set_visible(true)
+	current_state.enter_state(self)
+	
+	physics_node.mass = elem_mass
+	physics_node.floating = true
+	physics_node.direction = Vector2.ZERO

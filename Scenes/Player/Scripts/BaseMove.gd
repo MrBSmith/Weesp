@@ -1,8 +1,8 @@
-extends Node
+extends StateBase
 
-var player_node : Node
+class_name BaseMove
 
-class_name StateBase
+var physics_node : Node
 
 func update(_host, _delta):
 	pass
