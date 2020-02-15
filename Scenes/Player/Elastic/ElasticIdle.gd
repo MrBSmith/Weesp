@@ -2,12 +2,15 @@ extends BaseIdle
 
 #### GLUE STATE ####
 
+var camera_node : Camera2D
+
 const IMPULSE_FORCE : int = 1500
 
 var mouse_relative_pos := Vector2.ZERO
 
 onready var arrow_sprite_node = get_node("Arrow")
 onready var children_array = get_children()
+
 
 func setup():
 	for child in children_array:
@@ -17,7 +20,7 @@ func setup():
 
 # Make the arrow turn towards the destination
 func update(_host, _delta):
-	var mouse_pos = get_viewport().get_mouse_position()
+	var mouse_pos = camera_node.get_global_mouse_position()
 	var player_pos = player_node.get_position()
 	mouse_relative_pos = player_pos - mouse_pos
 	
@@ -34,7 +37,6 @@ func _input(event):
 		if event.button_index == BUTTON_LEFT && event.is_pressed():
 			physics_node.velocity = -mouse_relative_pos.normalized() * IMPULSE_FORCE
 			physics_node.set_physics_process(true)
-
 
 
 func enter_state(_host):
