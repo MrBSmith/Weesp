@@ -14,6 +14,7 @@ var wind_force := Vector2.ZERO
 var mass : int = 5
 var floating := false
 var total_rotation_rad : float
+var kin_collision : KinematicCollision2D
 
 
 func rotate_physics():
@@ -25,6 +26,7 @@ func rotate_physics():
 		total_rotation_rad = 0.0
 
 
+# Apply a force whenever this function is called
 func apply_force(force: Vector2):
 	wind_force = force
 
