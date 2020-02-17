@@ -4,14 +4,13 @@ class_name Player
 
 signal in_water_changed
 
-#Define an array of all children of player
+# Define an array of all children of player
 onready var children_array = get_children()
 onready var state_machine_node = get_node("StateMachine")
 onready var physics_node = get_node("Physics")
 onready var collision_shape_node = get_node("CollisionShape2D")
 
-const GRAVITY := 200.0
-var dir_gravity := Vector2(0,1)
+var camera_node : Camera2D
 
 export var speed : float
 var gap := Vector2(0,0)
@@ -20,6 +19,10 @@ var in_water : bool = false setget set_in_water, is_in_water
 
 func is_class(value : String):
 	return value == "Player" 
+
+# Give to physics node the force it get from elsewhere
+func apply_force(force: Vector2):
+	physics_node.apply_force(force)
 
 
 func set_in_water(value: bool):
@@ -36,7 +39,7 @@ func on_camera_rotated():
 
 
 # Give references to the children and setup them
-func _ready():
+func setup():
 	for child in children_array:
 		if "player_node" in child:
 			child.player_node = self
@@ -46,6 +49,9 @@ func _ready():
 		
 		if "state_machine_node" in child:
 			child.state_machine_node = state_machine_node
+		
+		if "camera_node" in child:
+			child.camera_node = camera_node
 		
 		if child.has_method("setup"):
 			child.setup()

@@ -81,7 +81,6 @@ script = ExtResource( 11 )
 [node name="Sprite" type="Sprite" parent="StateMachine/Elastic"]
 visible = false
 texture = ExtResource( 13 )
-
 __meta__ = {
 "_edit_lock_": true
 }
@@ -97,18 +96,15 @@ anchor_bottom = 1.0
 margin_right = 113.0
 margin_bottom = 55.0
 script = ExtResource( 19 )
-
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 
 [node name="InWaterLabel" type="Label" parent="Debug/DebugLabels"]
 margin_right = 113.0
 margin_bottom = 14.0
 text = "In Water :"
 script = ExtResource( 18 )
-
 __meta__ = {
 "_edit_use_anchors_": false
 }
