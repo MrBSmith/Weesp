@@ -1,16 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Global/Tilesets/LevelTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Fan/fan.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Level/StartP1.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Flag/Flag.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Level/Level.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Level/StartingPoint.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 136 )
+extents = Vector2( 16, 135.581 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 144 )
+extents = Vector2( 16, 152 )
 
 [node name="Level3" type="Node2D"]
+script = ExtResource( 5 )
+player_possible_states = PoolStringArray( "Leaf" )
 
 [node name="Murs" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -22,22 +27,23 @@ tile_data = PoolIntArray( 0, 3, 0, 2, 6, 0, 3, 6, 0, 4, 4, 0, 5, 6, 0, 6, 6, 0, 
 position = Vector2( 320, 344 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ventilateur"]
-position = Vector2( 0, -144 )
+position = Vector2( 0, -143 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Ventilateur2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 344, 48 )
 rotation = 4.71239
+wind_force = Vector2( -12, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ventilateur2"]
-position = Vector2( 0, -152 )
+position = Vector2( -0.000152588, -160 )
 shape = SubResource( 2 )
 
 [node name="StartingPoint" type="Sprite" parent="."]
-visible = false
 position = Vector2( 104, 104 )
 scale = Vector2( 0.166667, 0.166667 )
 texture = ExtResource( 3 )
+script = ExtResource( 6 )
+
+[node name="Flag" parent="." instance=ExtResource( 4 )]
+position = Vector2( 40, 304 )

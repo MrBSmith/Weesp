@@ -25,6 +25,8 @@ func _ready():
 		
 		if child.has_method("setup"):
 			child.setup()
+	
+	next_level()
 
 
 # Queue free the current level and add the next
@@ -38,4 +40,9 @@ func next_level():
 	
 	# Get the starting point of the level, and set the player's position to it
 	starting_point_pos = current_level.get_node("StartingPoint").get_global_position()
+	if starting_point_pos == Vector2.ZERO:
+		print("Error: the starting position is undefined")
+	
 	player_node.set_global_position(starting_point_pos)
+	player_node.set_velocity(Vector2.ZERO)
+	player_node.set_state(current_level.player_possible_states[0])

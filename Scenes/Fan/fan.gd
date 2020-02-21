@@ -4,7 +4,7 @@ onready var shape_node = get_node("CollisionShape2D")
 
 export var wind_force := Vector2(0, -12)
 
-func _ready():
+func setup():
 	var _err
 	_err = connect("body_entered", self, "on_body_entered")
 	_err = connect("body_exited", self, "on_body_exited")
@@ -19,5 +19,5 @@ func on_body_entered(body):
 # Give the force of the fan to the player
 func on_body_exited(body):
 	if body.is_class("Player"):
-		body.apply_force(Vector2(0, 0))
+		body.apply_force(-wind_force)
 

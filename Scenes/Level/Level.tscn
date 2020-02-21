@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Global/Tilesets/LevelTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Water/Shader/WaterShader.tres" type="Material" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scenes/Fan/fan.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Level/StartP1.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/BouncingWalls/BoucingWall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Flag/Flag.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Level/Level.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Level/StartingPoint.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.4461, 100.706 )
@@ -25,9 +28,11 @@ extents = Vector2( 61.876, 39.1983 )
 extents = Vector2( 41.4197, 33.7649 )
 
 [node name="Level1" type="Node2D"]
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
+player_possible_states = PoolStringArray( "Water" )
 
 [node name="MapBasicTileset" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -123,7 +128,10 @@ position = Vector2( 168, 360 )
 position = Vector2( 184, 360 )
 
 [node name="StartingPoint" type="Sprite" parent="."]
-visible = false
 position = Vector2( 48, 104 )
 scale = Vector2( 0.166667, 0.166667 )
 texture = ExtResource( 6 )
+script = ExtResource( 10 )
+
+[node name="Flag" parent="." instance=ExtResource( 8 )]
+position = Vector2( 320, 320 )

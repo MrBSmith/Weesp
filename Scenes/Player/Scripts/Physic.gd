@@ -28,7 +28,7 @@ func rotate_physics():
 
 # Apply a force whenever this function is called
 func apply_force(force: Vector2):
-	wind_force = force
+	wind_force += force
 
 
 func _physics_process(delta):

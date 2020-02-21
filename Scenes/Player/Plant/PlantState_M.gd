@@ -1,6 +1,6 @@
 extends ElementStateMachineBase
 
-export var elem_mass : float = 1.0
+export var elem_mass : float = 2.0
 
 #### LEAF STATE ####
 

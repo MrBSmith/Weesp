@@ -38,6 +38,14 @@ func on_camera_rotated():
 	physics_node.rotate_physics()
 
 
+func set_velocity(value : Vector2):
+	physics_node.velocity = value
+
+
+func set_state(value : String):
+	state_machine_node.set_state(value)
+
+
 # Give references to the children and setup them
 func setup():
 	for child in children_array:
