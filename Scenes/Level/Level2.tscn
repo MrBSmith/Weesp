@@ -1,0 +1,135 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Global/Tilesets/LevelTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/BouncingWalls/BoucingWall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Level/StartP1.png" type="Texture" id=3]
+
+[node name="Level2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 17, 1, 0, 18, 1, 0, 19, 1, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65558, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131094, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196630, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262166, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327697, 1, 0, 327702, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393233, 1, 0, 393238, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 589824, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 655360, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 720896, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 1, 0, 786432, 1, 0, 786449, 1, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 851968, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 1, 0, 851990, 1, 0, 917504, 1, 0, 917521, 1, 0, 917522, 1, 0, 917523, 1, 0, 917524, 1, 0, 917525, 1, 0, 917526, 1, 0, 983040, 1, 0, 983044, 1, 0, 983045, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 1048576, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1114112, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1179648, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179665, 1, 0, 1179666, 1, 0, 1179667, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1245184, 1, 0, 1245188, 1, 0, 1245189, 1, 0, 1245201, 1, 0, 1245202, 1, 0, 1245203, 1, 0, 1245204, 1, 0, 1245205, 1, 0, 1245206, 1, 0, 1310720, 1, 0, 1310724, 1, 0, 1310725, 1, 0, 1310726, 1, 0, 1310727, 1, 0, 1310728, 1, 0, 1310729, 1, 0, 1310730, 1, 0, 1310731, 1, 0, 1310732, 1, 0, 1310733, 1, 0, 1310734, 1, 0, 1310735, 1, 0, 1310736, 1, 0, 1310737, 1, 0, 1310738, 1, 0, 1310739, 1, 0, 1310740, 1, 0, 1310741, 1, 0, 1310742, 1, 0, 1376256, 1, 0, 1376260, 1, 0, 1376261, 1, 0, 1376262, 1, 0, 1376263, 1, 0, 1376264, 1, 0, 1376265, 1, 0, 1376266, 1, 0, 1376267, 1, 0, 1376268, 1, 0, 1376269, 1, 0, 1376270, 1, 0, 1376271, 1, 0, 1376272, 1, 0, 1376273, 1, 0, 1376274, 1, 0, 1376275, 1, 0, 1376276, 1, 0, 1376277, 1, 0, 1376278, 1, 0, 1441792, 1, 0, 1441793, 1, 0, 1441794, 1, 0, 1441795, 1, 0, 1441796, 1, 0, 1441797, 1, 0, 1441798, 1, 0, 1441799, 1, 0, 1441800, 1, 0, 1441801, 1, 0, 1441802, 1, 0, 1441803, 1, 0, 1441804, 1, 0, 1441805, 1, 0, 1441806, 1, 0, 1441807, 1, 0, 1441808, 1, 0, 1441809, 1, 0, 1441810, 1, 0, 1441811, 1, 0, 1441812, 1, 0, 1441813, 1, 0, 1441814, 1, 0 )
+
+[node name="MursRebondisants" type="Node2D" parent="."]
+
+[node name="BoucingWall" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 8 )
+
+[node name="BoucingWall2" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 136, 8 )
+
+[node name="BoucingWall3" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 152, 8 )
+
+[node name="BoucingWall4" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 168, 8 )
+
+[node name="BoucingWall5" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 184, 8 )
+
+[node name="BoucingWall6" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 200, 8 )
+
+[node name="BoucingWall7" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 216, 8 )
+
+[node name="BoucingWall8" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 232, 8 )
+
+[node name="BoucingWall9" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 248, 8 )
+
+[node name="BoucingWall10" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 264, 8 )
+
+[node name="BoucingWall11" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 264, 88 )
+
+[node name="BoucingWall12" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 248, 88 )
+
+[node name="BoucingWall13" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 232, 88 )
+
+[node name="BoucingWall14" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 216, 88 )
+
+[node name="BoucingWall26" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 200, 88 )
+
+[node name="BoucingWall27" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 184, 88 )
+
+[node name="BoucingWall28" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 264, 312 )
+
+[node name="BoucingWall29" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 248, 312 )
+
+[node name="BoucingWall30" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 232, 312 )
+
+[node name="BoucingWall31" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 216, 312 )
+
+[node name="BoucingWall32" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 200, 312 )
+
+[node name="BoucingWall33" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 184, 312 )
+
+[node name="BoucingWall34" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 168, 312 )
+
+[node name="BoucingWall35" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 152, 312 )
+
+[node name="BoucingWall36" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 136, 312 )
+
+[node name="BoucingWall37" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 312 )
+
+[node name="BoucingWall38" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 104, 312 )
+
+[node name="BoucingWall15" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 24 )
+
+[node name="BoucingWall16" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 40 )
+
+[node name="BoucingWall17" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 56 )
+
+[node name="BoucingWall18" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 72 )
+
+[node name="BoucingWall19" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 88 )
+
+[node name="BoucingWall20" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 104 )
+
+[node name="BoucingWall21" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 120 )
+
+[node name="BoucingWall22" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 136 )
+
+[node name="BoucingWall23" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 120, 152 )
+
+[node name="BoucingWall24" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 136, 152 )
+
+[node name="BoucingWall25" parent="MursRebondisants" instance=ExtResource( 2 )]
+position = Vector2( 152, 152 )
+
+[node name="StartingPoint" type="Sprite" parent="."]
+visible = false
+position = Vector2( 320, 104 )
+scale = Vector2( 0.166667, 0.166667 )
+texture = ExtResource( 3 )

@@ -2,7 +2,7 @@ extends Area2D
 
 onready var shape_node = get_node("CollisionShape2D")
 
-var wind_force := Vector2(0, -12)
+export var wind_force := Vector2(0, -12)
 
 func _ready():
 	var _err
@@ -20,5 +20,4 @@ func on_body_entered(body):
 func on_body_exited(body):
 	if body.is_class("Player"):
 		body.apply_force(Vector2(0, 0))
-
 
