@@ -23,6 +23,9 @@ func _ready():
 		if "player_node" in child:
 			child.player_node = player_node
 		
+		if "game_node" in child:
+			child.game_node = self
+		
 		if child.has_method("setup"):
 			child.setup()
 	
@@ -47,7 +50,15 @@ func next_level():
 		reset_camera()
 		place_player()
 	else:
+		#### YET TO BE ADDED ####
+		# Redirect to You Win screen
 		pass
+
+
+# Restart the current level
+func restart_level():
+	reset_camera()
+	place_player()
 
 
 # Place the player at his starting point in the new level
