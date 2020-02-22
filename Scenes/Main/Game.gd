@@ -43,6 +43,19 @@ func next_level():
 	if starting_point_pos == Vector2.ZERO:
 		print("Error: the starting position is undefined")
 	
+	reset_camera()
+	place_player()
+
+
+# Place the player at his starting point in the new level
+func place_player():
 	player_node.set_global_position(starting_point_pos)
-	player_node.set_velocity(Vector2.ZERO)
 	player_node.set_state(current_level.player_possible_states[0])
+	player_node.reset_physics()
+
+
+# Reset the camera rotation
+func reset_camera():
+	camera_node.set_rotation(0)
+	camera_node.set_physics_process(false)
+	camera_node.rotation_target = 0

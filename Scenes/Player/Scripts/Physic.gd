@@ -17,6 +17,7 @@ var total_rotation_rad : float
 var kin_collision : KinematicCollision2D
 
 
+# Rotate the gravity accordingly to the camera rotation
 func rotate_physics():
 	gravity = gravity.rotated(PI * 0.5) # Rotate the gravity by 90°
 	
@@ -24,6 +25,14 @@ func rotate_physics():
 	total_rotation_rad += 0.5
 	if total_rotation_rad >= 2.0:
 		total_rotation_rad = 0.0
+
+
+# Reset the physics to its original state
+func reset_physics():
+	gravity = Vector2(0, 10)
+	velocity = Vector2.ZERO
+	direction = Vector2.ZERO
+	wind_force = Vector2.ZERO
 
 
 # Apply a force whenever this function is called
@@ -66,4 +75,3 @@ func apply_friction(value : float):
 func apply_movement(value : Vector2):
 	velocity += value
 	velocity = velocity.clamped(MAX_SPEED)
-

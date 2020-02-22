@@ -38,6 +38,10 @@ func on_camera_rotated():
 	physics_node.rotate_physics()
 
 
+func reset_physics():
+	physics_node.reset_physics()
+
+
 func set_velocity(value : Vector2):
 	physics_node.velocity = value
 
