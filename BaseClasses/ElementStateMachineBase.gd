@@ -17,6 +17,9 @@ func setup():
 		if "player_node" in state:
 			state.player_node = player_node
 		
+		if "sprite_node" in state:
+			state.sprite_node = sprite_node
+		
 		if "physics_node" in state:
 			state.physics_node = physics_node
 		

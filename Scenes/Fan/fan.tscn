@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Fan/Sprite/VentilateurPH.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Fan/Sprite/WindMonster.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Fan/fan.gd" type="Script" id=2]
 
 [node name="Ventilateur" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -8 )
 texture = ExtResource( 1 )

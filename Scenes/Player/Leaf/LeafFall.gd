@@ -3,6 +3,7 @@ extends StateBase
 #### LEAF FALL ####
 
 var physics_node : Node
+var sprite_node : Node
 
 func update(_host, _delta):
 	physics_node.direction = get_input_axis()
@@ -17,3 +18,6 @@ func get_input_axis():
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	
 	return axis.normalized()
+
+func enter_state(_host):
+	sprite_node._set_playing(true)

@@ -29,6 +29,7 @@ func _ready():
 		if child.has_method("setup"):
 			child.setup()
 	
+	# Trigger the first level
 	next_level()
 
 

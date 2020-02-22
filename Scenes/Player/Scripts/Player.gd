@@ -10,6 +10,8 @@ onready var children_array = get_children()
 onready var state_machine_node = get_node("StateMachine")
 onready var physics_node = get_node("Physics")
 onready var collision_shape_node = get_node("CollisionShape2D")
+onready var leaf_sprite_node = get_node("StateMachine/Leaf/Sprite")
+onready var debug_labels_node = get_node("Debug/DebugLabels")
 
 var game_node : Node
 var camera_node : Camera2D
@@ -67,10 +69,14 @@ func is_in_water() -> bool:
 
 func on_camera_rotated():
 	physics_node.rotate_physics()
+	leaf_sprite_node.rotation_degrees += 90
+	if leaf_sprite_node.rotation_degrees >= 360:
+		leaf_sprite_node.rotation_degrees = 0
 
 
 func reset_physics():
 	physics_node.reset_physics()
+	leaf_sprite_node.rotation_degrees = 0
 
 
 func set_velocity(value : Vector2):
@@ -79,3 +85,8 @@ func set_velocity(value : Vector2):
 
 func set_state(value : String):
 	state_machine_node.set_state(value)
+
+
+func _input(_event):
+	if Input.is_action_pressed("ui_cancel"):
+		debug_labels_node.set_visible(!debug_labels_node.is_visible())
