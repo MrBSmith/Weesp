@@ -72,7 +72,7 @@ script = ExtResource( 7 )
 [node name="Sprite" type="AnimatedSprite" parent="StateMachine/Leaf"]
 visible = false
 frames = SubResource( 2 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Elastic" type="Node2D" parent="StateMachine"]
