@@ -35,16 +35,19 @@ func next_level():
 	if current_level != null:
 		current_level.queue_free()
 	current_level_index += 1
-	current_level = level_list[current_level_index].instance()
-	add_child(current_level)
-	
-	# Get the starting point of the level, and set the player's position to it
-	starting_point_pos = current_level.get_node("StartingPoint").get_global_position()
-	if starting_point_pos == Vector2.ZERO:
-		print("Error: the starting position is undefined")
-	
-	reset_camera()
-	place_player()
+	if current_level_index < len(level_list):
+		current_level = level_list[current_level_index].instance()
+		add_child(current_level)
+		
+		# Get the starting point of the level, and set the player's position to it
+		starting_point_pos = current_level.get_node("StartingPoint").get_global_position()
+		if starting_point_pos == Vector2.ZERO:
+			print("Error: the starting position is undefined")
+		
+		reset_camera()
+		place_player()
+	else:
+		pass
 
 
 # Place the player at his starting point in the new level

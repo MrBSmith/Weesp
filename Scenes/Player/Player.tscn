@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/Player/Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player/Scripts/PlayerStateMachine.gd" type="Script" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Player/Water/WaterMove.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Player/Plant/PlantState_M.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Player/Plant/PlantIdle.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Player/Plant/PlantFall.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Player/VelocityLabel.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Player/Elastic/ElasticState_M.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Player/Elastic/ElasticIdle.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Player/Elastic/ElasticMove.gd" type="Script" id=11]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Scenes/Player/Scripts/InWaterLabel.gd" type="Script" id=18]
 [ext_resource path="res://Scenes/Player/Scripts/DebugLabels.gd" type="Script" id=19]
 [ext_resource path="res://Scenes/Player/Sprites/Arrow.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Player/Plant/LeafFall.gd" type="Script" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
@@ -51,11 +52,11 @@ __meta__ = {
 [node name="Leaf" type="Node2D" parent="StateMachine"]
 script = ExtResource( 6 )
 
+[node name="Fall" type="Node" parent="StateMachine/Leaf"]
+script = ExtResource( 21 )
+
 [node name="Idle" type="Node" parent="StateMachine/Leaf"]
 script = ExtResource( 7 )
-
-[node name="Move" type="Node" parent="StateMachine/Leaf"]
-script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="StateMachine/Leaf"]
 visible = false
@@ -128,3 +129,9 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Velocity" type="Label" parent="Debug/DebugLabels"]
+margin_top = 54.0
+margin_right = 113.0
+margin_bottom = 68.0
+script = ExtResource( 8 )

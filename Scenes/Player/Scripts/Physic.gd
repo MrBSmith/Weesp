@@ -7,6 +7,7 @@ const MAX_SPEED : int = 300
 const DAMP : int = 1300
 const ACCELERATION : int = 2000
 
+var speed_modifier : float = 1.0 
 var gravity := Vector2(0, 10)
 var velocity := Vector2.ZERO
 var direction := Vector2.ZERO
@@ -29,6 +30,7 @@ func rotate_physics():
 
 # Reset the physics to its original state
 func reset_physics():
+	total_rotation_rad = 0.0
 	gravity = Vector2(0, 10)
 	velocity = Vector2.ZERO
 	direction = Vector2.ZERO
@@ -74,4 +76,4 @@ func apply_friction(value : float):
 # Apply the movement of the player
 func apply_movement(value : Vector2):
 	velocity += value
-	velocity = velocity.clamped(MAX_SPEED)
+	velocity = velocity.clamped(MAX_SPEED * speed_modifier)
