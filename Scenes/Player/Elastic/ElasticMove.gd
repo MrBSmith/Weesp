@@ -13,7 +13,7 @@ func update(_host, _delta):
 			
 			if collider != null:
 				# If the collision occurs on a bouncing wall 
-				if collider.is_class("BouncingWall"):
+				if collider.is_class("Ice"):
 					player_node.emit_signal("death")
 				# If the collision occurs with a normal wall
 				else:
