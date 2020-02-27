@@ -2,6 +2,8 @@ extends StateBase
 
 #### LEAF FALL ####
 
+onready var particule_node := get_node("Particles2D")
+
 var physics_node : Node
 var sprite_node : Node
 
@@ -19,5 +21,12 @@ func get_input_axis():
 	
 	return axis.normalized()
 
+
 func enter_state(_host):
 	sprite_node._set_playing(true)
+	particule_node.set_emitting(true)
+
+
+func exit_state(_host):
+	sprite_node._set_playing(false)
+	particule_node.set_emitting(false)
