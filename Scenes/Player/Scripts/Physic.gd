@@ -64,6 +64,12 @@ func _physics_process(delta):
 	# Move the player
 	var _err = player_node.move_and_slide(velocity)
 
+func invert_x_velocity():
+	velocity.x = -velocity.x
+
+
+func invert_y_velocity():
+	velocity.y = -velocity.y
 
 # Apply friction, progressively stop movement
 func apply_friction(value : float):

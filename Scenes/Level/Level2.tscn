@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Global/Tilesets/LevelTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Scenes/Ice/Ice.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Level/StartP1.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Flag/Flag.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Level/Level.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Level/StartingPoint.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/SlimyWall/SlimyWall.tscn" type="PackedScene" id=7]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 5 )
@@ -25,116 +25,116 @@ tile_data = PoolIntArray( 327697, 7, 0, 458773, 8, 0, 983045, 7, 0, 1310730, 8, 
 
 [node name="MursRebondisants" type="Node2D" parent="."]
 
-[node name="BoucingWall" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 120, 8 )
-
-[node name="BoucingWall2" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 136, 8 )
-
-[node name="BoucingWall3" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 152, 8 )
-
-[node name="BoucingWall4" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 168, 8 )
-
-[node name="BoucingWall5" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 184, 8 )
-
-[node name="BoucingWall6" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 200, 8 )
-
-[node name="BoucingWall7" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 216, 8 )
-
-[node name="BoucingWall8" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 232, 8 )
-
-[node name="BoucingWall9" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 248, 8 )
-
-[node name="BoucingWall10" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 264, 8 )
-
-[node name="BoucingWall11" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 264, 88 )
-
-[node name="BoucingWall12" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 248, 88 )
-
-[node name="BoucingWall13" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 232, 88 )
-
-[node name="BoucingWall14" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 216, 88 )
-
-[node name="BoucingWall26" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 200, 88 )
-
-[node name="BoucingWall28" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 264, 312 )
-
-[node name="BoucingWall29" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 248, 312 )
-
-[node name="BoucingWall30" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 232, 312 )
-
-[node name="BoucingWall31" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 216, 312 )
-
-[node name="BoucingWall32" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 200, 312 )
-
-[node name="BoucingWall33" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 184, 312 )
-
-[node name="BoucingWall34" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 168, 312 )
-
-[node name="BoucingWall35" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 152, 312 )
-
-[node name="BoucingWall36" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 136, 312 )
-
-[node name="BoucingWall37" parent="MursRebondisants" instance=ExtResource( 2 )]
-position = Vector2( 120, 312 )
-
-[node name="BoucingWall38" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 104, 312 )
 
-[node name="BoucingWall15" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall2" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 120, 312 )
+
+[node name="SlimyWall3" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 136, 312 )
+
+[node name="SlimyWall4" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 152, 312 )
+
+[node name="SlimyWall5" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 168, 312 )
+
+[node name="SlimyWall26" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 120, 8 )
+
+[node name="SlimyWall30" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 120, 24 )
 
-[node name="BoucingWall16" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall31" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 120, 40 )
 
-[node name="BoucingWall17" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall32" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 120, 56 )
 
-[node name="BoucingWall18" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall33" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 120, 72 )
 
-[node name="BoucingWall19" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall37" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 120, 88 )
 
-[node name="BoucingWall20" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall36" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 120, 104 )
 
-[node name="BoucingWall21" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall35" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 120, 120 )
 
-[node name="BoucingWall22" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall34" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 120, 136 )
 
-[node name="BoucingWall23" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall25" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 136, 8 )
+
+[node name="SlimyWall24" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 152, 8 )
+
+[node name="SlimyWall23" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 168, 8 )
+
+[node name="SlimyWall16" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 200, 88 )
+
+[node name="SlimyWall15" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 216, 88 )
+
+[node name="SlimyWall14" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 232, 88 )
+
+[node name="SlimyWall29" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 120, 152 )
 
-[node name="BoucingWall24" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall28" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 136, 152 )
 
-[node name="BoucingWall25" parent="MursRebondisants" instance=ExtResource( 2 )]
+[node name="SlimyWall27" parent="MursRebondisants" instance=ExtResource( 7 )]
 position = Vector2( 152, 152 )
+
+[node name="SlimyWall13" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 248, 88 )
+
+[node name="SlimyWall12" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 264, 88 )
+
+[node name="SlimyWall6" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 184, 312 )
+
+[node name="SlimyWall7" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 200, 312 )
+
+[node name="SlimyWall8" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 216, 312 )
+
+[node name="SlimyWall9" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 232, 312 )
+
+[node name="SlimyWall10" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 248, 312 )
+
+[node name="SlimyWall11" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 264, 312 )
+
+[node name="SlimyWall22" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 184, 8 )
+
+[node name="SlimyWall21" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 200, 8 )
+
+[node name="SlimyWall20" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 216, 8 )
+
+[node name="SlimyWall19" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 232, 8 )
+
+[node name="SlimyWall18" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 248, 8 )
+
+[node name="SlimyWall17" parent="MursRebondisants" instance=ExtResource( 7 )]
+position = Vector2( 264, 8 )
 
 [node name="StartingPoint" type="Sprite" parent="."]
 position = Vector2( 40, 336 )
