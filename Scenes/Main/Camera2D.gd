@@ -17,22 +17,38 @@ func setup():
 
 # Triggers the rotation on input of the player
 func _input(event):
-	if event.is_action_pressed("ui_accept") && is_rotating == false:
+	if event.is_action_pressed("cam_cw") && is_rotating == false:
 		rotation_target += 90
 		
 		is_rotating = true
 		if rotation_target >= 360:
 			rotation_target = 0
 		set_physics_process(true)
+	
+	if event.is_action_pressed("cam_ccw") && is_rotating == false:
+		rotation_target -= 90
+		
+		is_rotating = true
+		if rotation_target < 0:
+			rotation_target = 270
+		set_physics_process(true)
 
 
 # Handle the rotation movement
 func _physics_process(_delta):
+	
+	if rotation_target == 270 && rotation_degrees == 0:
+		rotation_degrees = 360
+	
+	# Handle the rotaion itself
 	if rotation_target != 0:
 		rotation_degrees += (rotation_target - rotation_degrees) / 4
+	elif rotation_degrees <= 90:
+		rotation_degrees -= rotation_degrees / 4
 	else:
 		rotation_degrees += (360 - rotation_degrees) / 4
 	
+	# Check if the rotation is over
 	if (rotation_degrees >= rotation_target - 1 && rotation_degrees <= rotation_target + 1) or rotation_degrees >= 359:
 		rotation_degrees = rotation_target
 		is_rotating = false
