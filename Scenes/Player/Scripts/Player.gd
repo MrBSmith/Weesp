@@ -20,7 +20,7 @@ export var speed : float
 var gap := Vector2(0,0)
 
 var in_water : bool = false setget set_in_water, is_in_water
-
+var camera_rotate_able : bool = true
 
 func is_class(value : String):
 	return value == "Player" 
@@ -61,17 +61,26 @@ func apply_force(force: Vector2):
 func set_in_water(value: bool):
 	in_water = value
 	emit_signal("in_water_changed", in_water)
+	if get_state() == "Water":
+		camera_rotate_able = true
 
 
 func is_in_water() -> bool:
 	return in_water
 
 
-func on_camera_rotated():
-	physics_node.rotate_physics()
-	leaf_sprite_node.rotation_degrees += 90
+func on_camera_rotated(clockwise : bool):
+	physics_node.rotate_physics(clockwise)
+	
+	if clockwise:
+		leaf_sprite_node.rotation_degrees += 90
+	else:
+		leaf_sprite_node.rotation_degrees -= 90
+	
 	if leaf_sprite_node.rotation_degrees >= 360:
 		leaf_sprite_node.rotation_degrees = 0
+	elif leaf_sprite_node.rotation_degrees < 0:
+		leaf_sprite_node.rotation_degrees = 270
 
 
 func reset_physics():
@@ -89,6 +98,7 @@ func set_state(value : String):
 
 func get_state() -> String:
 	return state_machine_node.get_state().name
+
 
 func _input(_event):
 	if Input.is_action_pressed("ui_cancel"):

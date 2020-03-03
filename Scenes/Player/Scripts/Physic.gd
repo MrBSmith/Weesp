@@ -19,13 +19,20 @@ var kin_collision : KinematicCollision2D
 
 
 # Rotate the gravity accordingly to the camera rotation
-func rotate_physics():
-	gravity = gravity.rotated(PI * 0.5) # Rotate the gravity by 90°
+func rotate_physics(clockwise : bool):
 	
 	# Keep trace of the total rotation of the camera
-	total_rotation_rad += 0.5
+	if clockwise:
+		total_rotation_rad += 0.5
+		gravity = gravity.rotated(PI * 0.5) # Rotate the gravity by 90°
+	else:
+		total_rotation_rad -= 0.5
+		gravity = gravity.rotated(-PI * 0.5) # Rotate the gravity by 90°
+		
 	if total_rotation_rad >= 2.0:
 		total_rotation_rad = 0.0
+	elif total_rotation_rad < 0.0:
+		total_rotation_rad = 1.5
 
 
 # Reset the physics to its original state
