@@ -38,7 +38,7 @@ func bounce(collision):
 	var player_pos = player_node.get_position()
 	var collision_pos = collision.get_position()
 	
-	if collision_pos.x < player_pos.x + 4  && collision_pos.x > player_pos.x - 4:
+	if collision_pos.y < player_pos.y - 4 or collision_pos.y > player_pos.y + 4:
 		physics_node.invert_y_velocity()
 	else:
 		physics_node.invert_x_velocity()
