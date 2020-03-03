@@ -87,6 +87,9 @@ func set_state(value : String):
 	state_machine_node.set_state(value)
 
 
+func get_state() -> String:
+	return state_machine_node.get_state().name
+
 func _input(_event):
 	if Input.is_action_pressed("ui_cancel"):
 		debug_labels_node.set_visible(!debug_labels_node.is_visible())

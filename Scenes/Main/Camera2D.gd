@@ -17,21 +17,22 @@ func setup():
 
 # Triggers the rotation on input of the player
 func _input(event):
-	if event.is_action_pressed("cam_cw") && is_rotating == false:
-		rotation_target += 90
+	if player_node.get_state() == "Leaf":
+		if event.is_action_pressed("cam_cw") && is_rotating == false:
+			rotation_target += 90
+			
+			is_rotating = true
+			if rotation_target >= 360:
+				rotation_target = 0
+			set_physics_process(true)
 		
-		is_rotating = true
-		if rotation_target >= 360:
-			rotation_target = 0
-		set_physics_process(true)
-	
-	if event.is_action_pressed("cam_ccw") && is_rotating == false:
-		rotation_target -= 90
-		
-		is_rotating = true
-		if rotation_target < 0:
-			rotation_target = 270
-		set_physics_process(true)
+		if event.is_action_pressed("cam_ccw") && is_rotating == false:
+			rotation_target -= 90
+			
+			is_rotating = true
+			if rotation_target < 0:
+				rotation_target = 270
+			set_physics_process(true)
 
 
 # Handle the rotation movement
