@@ -25,8 +25,8 @@
 [ext_resource path="res://Scenes/Player/Leaf/Sprites/WeespLeaf4.png" type="Texture" id=23]
 [ext_resource path="res://Scenes/Player/Leaf/Sprites/WeespLeaf1.png" type="Texture" id=24]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4, 4 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 3.57187
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.16092, 1 )
@@ -112,7 +112,7 @@ script = ExtResource( 7 )
 [node name="Sprite" type="AnimatedSprite" parent="StateMachine/Leaf"]
 visible = false
 frames = SubResource( 6 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Elastic" type="Node2D" parent="StateMachine"]

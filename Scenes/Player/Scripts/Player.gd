@@ -69,6 +69,10 @@ func is_in_water() -> bool:
 	return in_water
 
 
+func is_on_floor() -> bool:
+	return is_on_wall() && physics_node.velocity.y == 0
+
+
 func on_camera_rotated(clockwise : bool):
 	physics_node.rotate_physics(clockwise)
 	

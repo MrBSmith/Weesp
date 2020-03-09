@@ -15,7 +15,6 @@ var wind_force := Vector2.ZERO
 var mass : int = 5
 var floating := false
 var total_rotation_rad : float
-var kin_collision : KinematicCollision2D
 
 
 # Rotate the gravity accordingly to the camera rotation
@@ -67,6 +66,7 @@ func _physics_process(delta):
 		velocity -= applied_gravity
 	else:
 		velocity += applied_gravity
+	
 	
 	# Move the player
 	var _err = player_node.move_and_slide(velocity)
